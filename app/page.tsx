@@ -20,7 +20,7 @@ const structuredData = {
       },
       contactPoint: {
         '@type': 'ContactPoint',
-        telephone: '+1-555-123-4567',
+        telephone: '+92-345-2170895',
         contactType: 'customer service',
         email: 'contact@yourfbp.com',
       },
@@ -83,7 +83,7 @@ export default function Home() {
         background: '#1e293b', 
         color: 'white' 
       }}>
-        <p>&copy; 2024 Your Finance Business Profile. All rights reserved.</p>
+        <p>&copy; 2025 Your Finance Business Profile. All rights reserved.</p>
         <p style={{ fontSize: '0.9rem', opacity: 0.8, marginTop: '0.5rem' }}>
           Professional financial services with global expertise.
         </p>

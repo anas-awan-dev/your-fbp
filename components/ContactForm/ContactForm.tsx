@@ -352,7 +352,7 @@ const ContactForm: React.FC = () => {
                 <ContactIcon>
                   <FaPhone aria-hidden="true" />
                 </ContactIcon>
-                <span>+1 (555) 123-4567</span>
+                <span>+92 (345) 2170895</span>
               </ContactDetail>
             </ContactDetails>
           </ContactInfo>

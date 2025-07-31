@@ -155,15 +155,15 @@ const Overview: React.FC<OverviewProps> = ({ onContactClick }) => {
         
         <StatsContainer>
           <StatItem>
-            <StatNumber>500+</StatNumber>
+            <StatNumber>50+</StatNumber>
             <StatLabel>Global Clients</StatLabel>
           </StatItem>
           <StatItem>
-            <StatNumber>$2B+</StatNumber>
+            <StatNumber>$10M+</StatNumber>
             <StatLabel>Assets Managed</StatLabel>
           </StatItem>
           <StatItem>
-            <StatNumber>15+</StatNumber>
+            <StatNumber>10+</StatNumber>
             <StatLabel>Years Experience</StatLabel>
           </StatItem>
         </StatsContainer>
