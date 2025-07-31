@@ -290,7 +290,7 @@ const ContactForm: React.FC = () => {
       return;
     }
 
-    // setIsSubmitting(true);
+    setIsSubmitting(true);
     setSubmitMessage(null);
 
     try {
@@ -311,13 +311,13 @@ const ContactForm: React.FC = () => {
       } else {
         throw new Error('Failed to send message');
       }
-    } catch (error) {
+    } catch {
       setSubmitMessage({
         type: 'error',
         text: 'Sorry, there was an error sending your message. Please try again or contact us directly.'
       });
     } finally {
-      // setIsSubmitting(false);
+      setIsSubmitting(false);
     }
   };
 
@@ -334,11 +334,11 @@ const ContactForm: React.FC = () => {
 
         <ContactGrid>
           <ContactInfo>
-            <InfoTitle>Let's Discuss Your Financial Goals</InfoTitle>
+            <InfoTitle>Let&apos;s Discuss Your Financial Goals</InfoTitle>
             <InfoText>
               Our team of financial experts is ready to help you navigate your financial journey.
-              Whether you're planning for retirement, looking to grow your investments, or need
-              comprehensive financial advice, we're here to provide personalized solutions.
+              Whether you&apos;re planning for retirement, looking to grow your investments, or need
+              comprehensive financial advice, we&apos;re here to provide personalized solutions.
             </InfoText>
 
             <ContactDetails>
