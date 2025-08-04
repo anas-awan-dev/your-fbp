@@ -174,7 +174,7 @@ const AboutUs: React.FC = () => {
               of experience in finance, accounting, and business consulting.
             </p>
             <p>
-              We understand that every client's financial journey is unique. That's why 
+              We understand that every client&apos;s financial journey is unique. That&apos;s why 
               we take a personalized approach to every relationship, combining global 
               expertise with local understanding to deliver solutions that truly make 
               a difference in your financial future.
