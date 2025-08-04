@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { FaEnvelope, FaPhone, FaUser, FaCommentDots, FaPaperPlane } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaUser, FaCommentDots, FaPaperPlane, FaServicestack } from 'react-icons/fa';
 
 const ContactSection = styled.section`
   padding: 5rem 2rem;
@@ -144,6 +144,28 @@ const Input = styled.input`
   }
 `;
 
+const Select = styled.select`
+  padding: 0.875rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  
+  option {
+    background: #1e3a8a;
+    color: white;
+  }
+  
+  &:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+  }
+`;
+
 const TextArea = styled.textarea`
   padding: 0.875rem 1rem;
   border-radius: 8px;
@@ -219,6 +241,7 @@ interface FormData {
   name: string;
   email: string;
   phone: string;
+  service: string;
   message: string;
 }
 
@@ -226,6 +249,7 @@ interface FormErrors {
   name?: string;
   email?: string;
   phone?: string;
+  service?: string;
   message?: string;
 }
 
@@ -234,6 +258,7 @@ const ContactForm: React.FC = () => {
     name: '',
     email: '',
     phone: '',
+    service: '',
     message: ''
   });
 
@@ -260,6 +285,10 @@ const ContactForm: React.FC = () => {
       newErrors.phone = 'Please enter a valid phone number';
     }
 
+    if (!formData.service.trim()) {
+      newErrors.service = 'Please select a service';
+    }
+
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required';
     } else if (formData.message.trim().length < 10) {
@@ -270,7 +299,7 @@ const ContactForm: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
 
@@ -307,7 +336,7 @@ const ContactForm: React.FC = () => {
           type: 'success',
           text: 'Thank you for your message! We\'ll get back to you within 24 hours.'
         });
-        setFormData({ name: '', email: '', phone: '', message: '' });
+        setFormData({ name: '', email: '', phone: '', service: '', message: '' });
       } else {
         throw new Error('Failed to send message');
       }
@@ -411,6 +440,33 @@ const ContactForm: React.FC = () => {
                   aria-describedby={errors.phone ? "phone-error" : undefined}
                 />
                 {errors.phone && <ErrorText id="phone-error">{errors.phone}</ErrorText>}
+              </FormGroup>
+
+              <FormGroup>
+                <Label htmlFor="service">
+                  <FaServicestack aria-hidden="true" />
+                  Service of Interest *
+                </Label>
+                <Select
+                  id="service"
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  required
+                  aria-describedby={errors.service ? "service-error" : undefined}
+                >
+                  <option value="">Select a service</option>
+                  <option value="Financial Consulting">Financial Consulting</option>
+                  <option value="Portfolio Management">Portfolio Management</option>
+                  <option value="Investment Strategies">Investment Strategies</option>
+                  <option value="Risk Management">Risk Management</option>
+                  <option value="Retirement Planning">Retirement Planning</option>
+                  <option value="Global Investment">Global Investment</option>
+                  <option value="Accountancy">Accountancy</option>
+                  <option value="Bookkeeping & Payroll">Bookkeeping & Payroll</option>
+                  <option value="Taxation">Taxation</option>
+                </Select>
+                {errors.service && <ErrorText id="service-error">{errors.service}</ErrorText>}
               </FormGroup>
 
               <FormGroup>

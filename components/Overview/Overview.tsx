@@ -140,7 +140,7 @@ const Overview: React.FC<OverviewProps> = ({ onContactClick }) => {
     <OverviewSection>
       <Container>
         <HeroContent>
-          <MainHeading>Your Finance Business Profile</MainHeading>
+          <MainHeading>Your Finance Business Partner</MainHeading>
           <SubHeading>Global Financial Expertise at Your Service</SubHeading>
           <Description>
             We provide comprehensive financial services with a client-oriented approach, 

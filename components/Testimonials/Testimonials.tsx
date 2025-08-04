@@ -148,7 +148,7 @@ const StarRating = styled.div`
 const testimonials = [
   {
     id: 1,
-    text: "Working with Your Finance Business Profile has been transformative for our company's financial strategy. Their global expertise and personalized approach helped us navigate complex international markets and achieve a 40% increase in our portfolio value.",
+    text: "Working with Your Finance Business Partner has been transformative for our company's financial strategy. Their global expertise and personalized approach helped us navigate complex international markets and achieve a 40% increase in our portfolio value.",
     client: {
       name: "Sarah Johnson",
       title: "CEO, TechGlobal Solutions",

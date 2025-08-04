@@ -6,7 +6,10 @@ import {
   FaHandshake, 
   FaPiggyBank, 
   FaCalculator, 
-  FaGlobeAmericas 
+  FaGlobeAmericas,
+  FaFileInvoiceDollar,
+  FaBook,
+  FaReceipt
 } from 'react-icons/fa';
 
 const ServicesSection = styled.section`
@@ -194,6 +197,39 @@ const services = [
       'Currency hedging strategies',
       'Emerging markets access',
       'Global economic analysis'
+    ]
+  },
+  {
+    icon: FaFileInvoiceDollar,
+    title: 'Accountancy',
+    description: 'Professional accounting services to keep your finances organized and compliant.',
+    features: [
+      'Financial statement preparation',
+      'Audit and assurance services',
+      'Management accounting',
+      'Financial analysis and reporting'
+    ]
+  },
+  {
+    icon: FaBook,
+    title: 'Bookkeeping & Payroll',
+    description: 'Comprehensive bookkeeping and payroll management for your business.',
+    features: [
+      'Daily transaction recording',
+      'Payroll processing and compliance',
+      'Employee benefits administration',
+      'Monthly financial reconciliation'
+    ]
+  },
+  {
+    icon: FaReceipt,
+    title: 'Taxation',
+    description: 'Expert tax planning and preparation services to maximize your savings.',
+    features: [
+      'Tax return preparation',
+      'Tax planning strategies',
+      'IRS representation',
+      'Tax compliance consulting'
     ]
   }
 ];

@@ -1,4 +1,4 @@
-# Your Finance Business Profile
+# Your Finance Business Partner
 
 A professional, responsive landing page for a global financial services platform built with Next.js, TypeScript, and styled-components.
 

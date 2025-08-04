@@ -9,28 +9,28 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Your Finance Business Profile | Global Financial Services",
+  title: "Your Finance Business Partner | Global Financial Services",
   description: "Professional financial services with global expertise. Investment strategies, portfolio management, retirement planning, and risk management solutions tailored to your needs.",
   keywords: "financial services, investment management, portfolio management, retirement planning, risk management, financial consulting, global finance",
-  authors: [{ name: "Your Finance Business Profile" }],
+  authors: [{ name: "Your Finance Business Partner" }],
   openGraph: {
-    title: "Your Finance Business Profile | Global Financial Services",
+    title: "Your Finance Business Partner | Global Financial Services",
     description: "Professional financial services with global expertise. Investment strategies, portfolio management, retirement planning, and risk management solutions tailored to your needs.",
     url: "https://yourfbp.com",
-    siteName: "Your Finance Business Profile",
+    siteName: "Your Finance Business Partner",
     type: "website",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Your Finance Business Profile",
+        alt: "Your Finance Business Partner",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Your Finance Business Profile | Global Financial Services",
+    title: "Your Finance Business Partner | Global Financial Services",
     description: "Professional financial services with global expertise. Investment strategies, portfolio management, retirement planning, and risk management.",
   },
   robots: {

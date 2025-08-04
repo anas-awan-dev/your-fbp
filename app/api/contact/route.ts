@@ -5,6 +5,7 @@ interface ContactFormData {
   name: string;
   email: string;
   phone: string;
+  service: string;
   message: string;
 }
 
@@ -12,7 +13,7 @@ interface ContactFormData {
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || 'smtp.gmail.com',
   port: parseInt(process.env.SMTP_PORT || '587'),
-  secure: false,
+  secure: parseInt(process.env.SMTP_PORT || '587') === 465,
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
@@ -25,9 +26,9 @@ const transporter = nodemailer.createTransport({
 export async function POST(request: NextRequest) {
   try {
     const body: ContactFormData = await request.json();
-    const { name, email, phone, message } = body;
+    const { name, email, phone, service, message } = body;
 
-    if (!name || !email || !phone || !message) {
+    if (!name || !email || !phone || !service || !message) {
       return NextResponse.json(
         { error: 'All fields are required' },
         { status: 400 }
@@ -56,6 +57,7 @@ export async function POST(request: NextRequest) {
             <p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
             <p><strong>Phone:</strong> <a href="tel:${phone}">${phone}</a></p>
+            <p><strong>Service of Interest:</strong> ${service}</p>
           </div>
           
           <div style="background: #ffffff; padding: 20px; border: 1px solid #e5e7eb; border-radius: 8px;">
@@ -65,7 +67,7 @@ export async function POST(request: NextRequest) {
           
           <div style="margin-top: 20px; padding: 15px; background: #dbeafe; border-radius: 8px;">
             <p style="margin: 0; font-size: 14px; color: #1e40af;">
-              This message was sent from the Your Finance Business Profile contact form.
+              This message was sent from the Your Finance Business Partner contact form.
               Please respond within 24 hours for the best customer experience.
             </p>
           </div>
@@ -77,23 +79,24 @@ New Contact Form Submission
 Name: ${name}
 Email: ${email}
 Phone: ${phone}
+Service of Interest: ${service}
 
 Message:
 ${message}
 
 ---
-This message was sent from the Your Finance Business Profile contact form.
+This message was sent from the Your Finance Business Partner contact form.
       `.trim(),
     };
 
     const autoReplyOptions = {
       from: process.env.SMTP_FROM || process.env.SMTP_USER,
       to: email,
-      subject: 'Thank you for contacting Your Finance Business Profile',
+      subject: 'Thank you for contacting Your Finance Business Partner',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <div style="background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); padding: 30px; text-align: center; border-radius: 8px 8px 0 0;">
-            <h1 style="color: white; margin: 0; font-size: 28px;">Your Finance Business Profile</h1>
+            <h1 style="color: white; margin: 0; font-size: 28px;">Your Finance Business Partner</h1>
             <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 16px;">Global Financial Expertise at Your Service</p>
           </div>
           
@@ -130,7 +133,7 @@ This message was sent from the Your Finance Business Profile contact form.
         </div>
       `,
       text: `
-Thank you for contacting Your Finance Business Profile, ${name}!
+Thank you for contacting Your Finance Business Partner, ${name}!
 
 We've received your inquiry and one of our financial experts will review your message carefully. You can expect to hear from us within 24 hours.
 
@@ -145,7 +148,7 @@ In the meantime, feel free to explore our services and learn more about how we c
 Questions? Contact us directly at contact@yourfbp.com or call +92-345-2170895
 
 Best regards,
-Your Finance Business Profile Team
+Your Finance Business Partner Team
       `.trim(),
     };
 

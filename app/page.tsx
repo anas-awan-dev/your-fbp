@@ -3,6 +3,7 @@
 import React, { useRef } from 'react';
 import Overview from '../components/Overview';
 import Services from '../components/Services';
+import AboutUs from '../components/AboutUs';
 import Testimonials from '../components/Testimonials';
 import ContactForm from '../components/ContactForm';
 const structuredData = {
@@ -10,7 +11,7 @@ const structuredData = {
   '@graph': [
     {
       '@type': 'Organization',
-      name: 'Your Finance Business Profile',
+      name: 'Your Finance Business Partner',
       url: 'https://yourfbp.com',
       logo: 'https://yourfbp.com/logo.png',
       description: 'Professional financial services with global expertise. Investment strategies, portfolio management, retirement planning, and risk management solutions.',
@@ -36,11 +37,11 @@ const structuredData = {
     {
       '@type': 'WebSite',
       url: 'https://yourfbp.com',
-      name: 'Your Finance Business Profile',
+      name: 'Your Finance Business Partner',
       description: 'Professional financial services with global expertise.',
       publisher: {
         '@type': 'Organization',
-        name: 'Your Finance Business Profile',
+        name: 'Your Finance Business Partner',
       },
       potentialAction: {
         '@type': 'SearchAction',
@@ -71,6 +72,7 @@ export default function Home() {
       <main>
         <Overview onContactClick={scrollToContact} />
         <Services />
+        <AboutUs />
         <Testimonials />
         <div ref={contactRef}>
           <ContactForm />
@@ -83,7 +85,7 @@ export default function Home() {
         background: '#1e293b', 
         color: 'white' 
       }}>
-        <p>&copy; 2025 Your Finance Business Profile. All rights reserved.</p>
+        <p>&copy; 2025 Your Finance Business Partner. All rights reserved.</p>
         <p style={{ fontSize: '0.9rem', opacity: 0.8, marginTop: '0.5rem' }}>
           Professional financial services with global expertise.
         </p>
