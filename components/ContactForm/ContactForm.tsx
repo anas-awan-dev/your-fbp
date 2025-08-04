@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FaEnvelope, FaPhone, FaUser, FaCommentDots, FaPaperPlane, FaServicestack } from 'react-icons/fa';
+import { CalendlyButton } from '../CalendlyWidget/CalendlyPopup';
 
 const ContactSection = styled.section`
   padding: 5rem 2rem;
@@ -237,6 +238,31 @@ const ErrorText = styled.span`
   margin-top: 0.25rem;
 `;
 
+const QuickScheduleSection = styled.div`
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+`;
+
+const QuickScheduleTitle = styled.h4`
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: white;
+`;
+
+const QuickScheduleText = styled.p`
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+`;
+
+const CalendlyButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+`;
+
 interface FormData {
   name: string;
   email: string;
@@ -384,6 +410,25 @@ const ContactForm: React.FC = () => {
                 <span>+92 (345) 2170895</span>
               </ContactDetail>
             </ContactDetails>
+
+            <QuickScheduleSection>
+              <QuickScheduleTitle>Prefer a Quick Call?</QuickScheduleTitle>
+              <QuickScheduleText>
+                Skip the form and schedule a free 15-minute demo call with one of our financial experts. 
+                We&apos;ll discuss your goals and show you how we can help.
+              </QuickScheduleText>
+              <CalendlyButtonWrapper>
+                <CalendlyButton
+                  buttonText="Schedule Free Demo"
+                  calendlyUrl={process.env.NEXT_PUBLIC_CALENDLY_URL}
+                  utm={{
+                    utmSource: 'website',
+                    utmMedium: 'contact-section',
+                    utmCampaign: 'demo-booking'
+                  }}
+                />
+              </CalendlyButtonWrapper>
+            </QuickScheduleSection>
           </ContactInfo>
 
           <FormContainer>
