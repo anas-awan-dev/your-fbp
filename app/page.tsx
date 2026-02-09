@@ -21,7 +21,7 @@ const structuredData = {
       },
       contactPoint: {
         '@type': 'ContactPoint',
-        telephone: '+92-345-2170895',
+        telephone: '+92-309-8402154',
         contactType: 'customer service',
         email: 'contact@yourfbp.com',
       },
