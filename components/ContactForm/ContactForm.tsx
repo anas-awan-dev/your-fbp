@@ -401,7 +401,7 @@ const ContactForm: React.FC = () => {
                 <ContactIcon>
                   <FaEnvelope aria-hidden="true" />
                 </ContactIcon>
-                <span>contact@yourfbp.com</span>
+                <span>info@yourfbp.com</span>
               </ContactDetail>
               <ContactDetail>
                 <ContactIcon>

@@ -125,7 +125,7 @@ This message was sent from the Your Finance Business Partner contact form.
             
             <div style="margin-top: 30px; padding: 20px; background: #dbeafe; border-radius: 8px; text-align: center;">
               <p style="margin: 0; color: #1e40af; font-weight: 600;">
-                Questions? Contact us directly at <a href="mailto:contact@yourfbp.com" style="color: #1e40af;">contact@yourfbp.com</a> 
+                Questions? Contact us directly at <a href="mailto:info@yourfbp.com" style="color: #1e40af;">info@yourfbp.com</a> 
                 or call <a href="tel:+923098402154" style="color: #1e40af;">+92-309-8402154</a>
               </p>
             </div>
@@ -145,7 +145,7 @@ What happens next?
 
 In the meantime, feel free to explore our services and learn more about how we can help you achieve your financial goals.
 
-Questions? Contact us directly at contact@yourfbp.com or call +92-309-8402154
+Questions? Contact us directly at info@yourfbp.com or call +92-309-8402154
 
 Best regards,
 Your Finance Business Partner Team

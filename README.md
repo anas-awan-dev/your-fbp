@@ -74,7 +74,7 @@ yourfbp/
    SMTP_USER=your-email@gmail.com
    SMTP_PASS=your-app-password
    SMTP_FROM=your-email@gmail.com
-   CONTACT_EMAIL=contact@yourfbp.com
+   CONTACT_EMAIL=info@yourfbp.com
    NEXT_PUBLIC_SITE_URL=https://yourfbp.com
    ```
 
@@ -251,7 +251,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙋‍♂️ Support
 
-For support, email contact@yourfbp.com or create an issue in this repository.
+For support, email info@yourfbp.com or create an issue in this repository.
 
 ---
 

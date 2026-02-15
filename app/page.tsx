@@ -23,7 +23,7 @@ const structuredData = {
         '@type': 'ContactPoint',
         telephone: '+92-309-8402154',
         contactType: 'customer service',
-        email: 'contact@yourfbp.com',
+        email: 'info@yourfbp.com',
       },
       sameAs: [
         'https://linkedin.com/company/your-finance-business-profile',
