@@ -415,13 +415,13 @@ const ContactForm: React.FC = () => {
                 <ContactIcon>
                   <FaEnvelope aria-hidden="true" />
                 </ContactIcon>
-                <span>contact@yourfbp.com</span>
+                <span>info@yourfbp.com</span>
               </ContactDetail>
               <ContactDetail>
                 <ContactIcon>
                   <FaPhone aria-hidden="true" />
                 </ContactIcon>
-                <span>+92 (345) 2170895</span>
+                <span>+92 (309) 8402154</span>
               </ContactDetail>
             </ContactDetails>
 
