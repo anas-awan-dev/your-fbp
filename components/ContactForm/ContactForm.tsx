@@ -5,9 +5,23 @@ import { CalendlyButton } from '../CalendlyWidget/CalendlyPopup';
 
 const ContactSection = styled.section`
   padding: 5rem 2rem;
-  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy3) 100%);
   color: white;
-  
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201, 168, 76, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
   @media (max-width: 768px) {
     padding: 3rem 1rem;
   }

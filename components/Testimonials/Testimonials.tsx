@@ -1,231 +1,165 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaQuoteLeft, FaStar } from 'react-icons/fa';
+import { Section, Container, ButtonLink } from '../Common';
+import { FaArrowRight } from 'react-icons/fa';
 
-const TestimonialsSection = styled.section`
-  padding: 5rem 2rem;
-  background: white;
-  
-  @media (max-width: 768px) {
-    padding: 3rem 1rem;
-  }
-`;
-
-const Container = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-`;
-
-const SectionHeader = styled.header`
-  text-align: center;
-  margin-bottom: 4rem;
-`;
-
-const SectionTitle = styled.h2`
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #1e3a8a;
-  margin-bottom: 1rem;
-  
-  @media (max-width: 768px) {
-    font-size: 2rem;
-  }
-`;
-
-const SectionSubtitle = styled.p`
-  font-size: 1.25rem;
-  color: #64748b;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
-  
-  @media (max-width: 768px) {
-    font-size: 1.125rem;
-  }
-`;
-
-const TestimonialsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-`;
-
-const TestimonialCard = styled.article`
-  background: #f8fafc;
-  padding: 2rem;
-  border-radius: 12px;
-  position: relative;
-  border: 1px solid #e2e8f0;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  }
-`;
-
-const QuoteIcon = styled.div`
-  position: absolute;
-  top: -10px;
-  left: 2rem;
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
-  border-radius: 50%;
+const TestiHead = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1rem;
-`;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 3rem;
 
-const TestimonialText = styled.blockquote`
-  font-size: 1.125rem;
-  line-height: 1.6;
-  color: #374151;
-  margin: 1.5rem 0 2rem 0;
-  font-style: italic;
-  
-  &:before,
-  &:after {
-    content: '';
+  @media (max-width: 900px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
 `;
 
-const ClientInfo = styled.div`
+const HeadContent = styled.div`
+  .label {
+    font-family: 'Courier New', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    color: var(--white);
+    max-width: 400px;
+  }
+`;
+
+const TestiGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const TestiCard = styled.article`
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  padding: 2rem 2rem 1.75rem;
+  transition: border-color 0.3s, background 0.3s;
+
+  &:hover {
+    border-color: rgba(201, 168, 76, 0.45);
+    background: rgba(255, 255, 255, 0.07);
+  }
+`;
+
+const TestiStars = styled.div`
+  color: var(--gold);
+  font-size: 0.8rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.1em;
+`;
+
+const TestiQuote = styled.p`
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: 1.75rem;
+`;
+
+const TestiAuthor = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
 `;
 
-const ClientAvatar = styled.div`
-  width: 50px;
-  height: 50px;
+const TestiAvatar = styled.div`
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
+  background: linear-gradient(135deg, var(--gold), var(--navy3));
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-weight: 600;
-  font-size: 1.125rem;
-`;
-
-const ClientDetails = styled.div`
-  flex: 1;
-`;
-
-const ClientName = styled.h3`
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #1e293b;
-  margin-bottom: 0.25rem;
-`;
-
-const ClientTitle = styled.p`
+  font-weight: 700;
+  color: var(--white);
   font-size: 0.9rem;
-  color: #64748b;
-  margin-bottom: 0.25rem;
+  flex-shrink: 0;
 `;
 
-const ClientLocation = styled.p`
-  font-size: 0.85rem;
-  color: #94a3b8;
-`;
+const TestiInfo = styled.div`
+  .name {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--white);
+  }
 
-const StarRating = styled.div`
-  display: flex;
-  gap: 0.25rem;
-  margin-top: 1rem;
-  color: #fbbf24;
+  .role {
+    font-size: 0.75rem;
+    color: var(--slate);
+    margin-top: 1px;
+  }
 `;
 
 const testimonials = [
   {
-    id: 1,
-    text: "Working with Your Finance Business Partner has been transformative for our company's financial strategy. Their global expertise and personalized approach helped us navigate complex international markets and achieve a 40% increase in our portfolio value.",
-    client: {
-      name: "Sarah Johnson",
-      title: "CEO, TechGlobal Solutions",
-      location: "New York, USA",
-      initials: "SJ"
-    },
-    rating: 5
+    stars: 5,
+    quote: "Working with YourFBP has been transformative. Their global expertise and personal approach helped us navigate complex international markets and achieve a 40% increase in portfolio value within 18 months.",
+    name: "Sarah Johnson",
+    initials: "SJ",
+    role: "CEO, TechGlobal Solutions — New York"
   },
   {
-    id: 2,
-    text: "The retirement planning services exceeded our expectations. The team's thorough analysis and strategic recommendations gave us complete confidence in our financial future. Their attention to detail and client-focused approach is unmatched.",
-    client: {
-      name: "Michael Chen",
-      title: "Managing Director, Chen Industries",
-      location: "Singapore",
-      initials: "MC"
-    },
-    rating: 5
+    stars: 5,
+    quote: "The retirement planning service exceeded all expectations. Their thorough analysis gave us complete confidence in our financial future. The attention to detail and UK regulatory knowledge is unmatched.",
+    name: "Michael Chen",
+    initials: "MC",
+    role: "Managing Director, Chen Industries — Singapore"
   },
   {
-    id: 3,
-    text: "As a small business owner, I needed expert guidance to expand internationally. Their risk management strategies and investment advice helped me successfully enter three new markets while protecting my assets. Truly professional service.",
-    client: {
-      name: "Elena Rodriguez",
-      title: "Founder, Rodriguez Consulting",
-      location: "Madrid, Spain",
-      initials: "ER"
-    },
-    rating: 5
+    stars: 5,
+    quote: "As a founder scaling into European markets, I needed a partner who understood both tax compliance and growth strategy. YourFBP delivered on both fronts. Truly professional, truly invested in our success.",
+    name: "Elena Rodriguez",
+    initials: "ER",
+    role: "Founder, Rodriguez Consulting — Madrid"
   }
 ];
 
 const Testimonials: React.FC = () => {
   return (
-    <TestimonialsSection id="testimonials">
+    <Section variant="dark" id="testimonials">
       <Container>
-        <SectionHeader>
-          <SectionTitle>What Our Clients Say</SectionTitle>
-          <SectionSubtitle>
-            Discover how we&apos;ve helped businesses and individuals worldwide 
-            achieve their financial goals
-          </SectionSubtitle>
-        </SectionHeader>
-        
-        <TestimonialsGrid>
-          {testimonials.map((testimonial) => (
-            <TestimonialCard key={testimonial.id}>
-              <QuoteIcon>
-                <FaQuoteLeft aria-hidden="true" />
-              </QuoteIcon>
-              
-              <TestimonialText>
-                {testimonial.text}
-              </TestimonialText>
-              
-              <ClientInfo>
-                <ClientAvatar>
-                  {testimonial.client.initials}
-                </ClientAvatar>
-                <ClientDetails>
-                  <ClientName>{testimonial.client.name}</ClientName>
-                  <ClientTitle>{testimonial.client.title}</ClientTitle>
-                  <ClientLocation>{testimonial.client.location}</ClientLocation>
-                </ClientDetails>
-              </ClientInfo>
-              
-              <StarRating>
-                {[...Array(testimonial.rating)].map((_, index) => (
-                  <FaStar key={index} aria-hidden="true" />
-                ))}
-                <span className="sr-only">{testimonial.rating} out of 5 stars</span>
-              </StarRating>
-            </TestimonialCard>
+        <TestiHead className="reveal">
+          <HeadContent>
+            <span className="label">Client Voices</span>
+            <h2>What Our Clients Say</h2>
+          </HeadContent>
+          <ButtonLink variant="outline" href="#contact">
+            Join Our Clients <FaArrowRight />
+          </ButtonLink>
+        </TestiHead>
+
+        <TestiGrid>
+          {testimonials.map((testimonial, index) => (
+            <TestiCard key={index} className={`reveal ${index > 0 ? `reveal-delay-${index}` : ''}`}>
+              <TestiStars>{'★'.repeat(testimonial.stars)}</TestiStars>
+              <TestiQuote>&ldquo;{testimonial.quote}&rdquo;</TestiQuote>
+              <TestiAuthor>
+                <TestiAvatar>{testimonial.initials}</TestiAvatar>
+                <TestiInfo>
+                  <div className="name">{testimonial.name}</div>
+                  <div className="role">{testimonial.role}</div>
+                </TestiInfo>
+              </TestiAuthor>
+            </TestiCard>
           ))}
-        </TestimonialsGrid>
+        </TestiGrid>
       </Container>
-    </TestimonialsSection>
+    </Section>
   );
 };
 

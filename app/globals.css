@@ -1,7 +1,22 @@
 :root {
+  /* Navy/Gold Premium Theme */
+  --navy: #0b1628;
+  --navy2: #112040;
+  --navy3: #162c54;
+  --gold: #c9a84c;
+  --gold-light: #e2c06e;
+  --cream: #f5f0e8;
+  --white: #ffffff;
+  --mist: #e8edf5;
+  --slate: #8fa3bf;
+  --body: #3a4a5c;
+
+  /* Legacy blue variables for backward compatibility */
   --primary-blue: #1e3a8a;
   --primary-blue-light: #3b82f6;
   --primary-blue-dark: #1e40af;
+
+  /* Gray scale */
   --gray-50: #f8fafc;
   --gray-100: #f1f5f9;
   --gray-200: #e2e8f0;
@@ -12,10 +27,14 @@
   --gray-700: #334155;
   --gray-800: #1e293b;
   --gray-900: #0f172a;
-  --white: #ffffff;
+
+  /* Utility colors */
   --success: #22c55e;
   --error: #ef4444;
   --warning: #f59e0b;
+
+  /* Animation easing */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -78,16 +97,63 @@ select {
   border: 0;
 }
 
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--navy);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 3px;
+}
+
+/* Animation utilities */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+
+.reveal-delay-4 {
+  transition-delay: 0.4s;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  
+
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }

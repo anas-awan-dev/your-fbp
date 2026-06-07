@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import StyledComponentsRegistry from '../utils/StyledComponentsRegistry';
+import Navbar from '../components/Navbar';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -10,8 +11,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Your Finance Business Partner | Global Financial Services",
-  description: "Professional financial services with global expertise. Investment strategies, portfolio management, retirement planning, and risk management solutions tailored to your needs.",
-  keywords: "financial services, investment management, portfolio management, retirement planning, risk management, financial consulting, global finance",
+  description: "We deliver institutional-grade financial services — from strategic consultancy to tax and audit — with the rigour of a Big Four firm and the personal touch of a dedicated partner.",
+  keywords: "financial services, investment management, portfolio management, retirement planning, risk management, financial consulting, global finance, accountancy, taxation, bookkeeping",
   authors: [{ name: "Your Finance Business Partner" }],
   openGraph: {
     title: "Your Finance Business Partner | Global Financial Services",
@@ -54,6 +55,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <StyledComponentsRegistry>
+          <Navbar />
           {children}
         </StyledComponentsRegistry>
       </body>
